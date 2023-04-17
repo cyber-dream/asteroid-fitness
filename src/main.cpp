@@ -26,23 +26,30 @@
 
 #include <string>
 
-#include <hardware/sensors.h>
+#include "stepstracker.h"
+//#include "sensorthread.h"
+#include <QtSensors/QAccelerometer>
 
-void TripPolling()
+void SensorPolling(QSensorReading* reading)
 {
-    
     while (true){
-        syslog(LOG_INFO, "Background thread");
+        qreal x = reading->property("x").value<qreal>();
+        qreal y = reading->value(1).value<qreal>();
+        double px = x;
+        syslog(LOG_INFO, std::to_string(px).c_str());
+
         std::this_thread::sleep_for(std::chrono::seconds(2));
     }
-    
 }
 
-int main(int argc, char *argv[])
-{   
+int main(int argc, char *argv[]) {
+    QSensor sensor("QGyroscope");
+    sensor.start();
+    QSensorReading *reading = sensor.reading();
+
     auto res = std::async(std::launch::async, [&]{
-        // syslog(LOG_INFO, "Delayed print");
-        // TripPolling();
+        SensorPolling(reading);
     });
     return AsteroidApp::main(argc, argv);
 }
+
