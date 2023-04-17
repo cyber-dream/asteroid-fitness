@@ -16,8 +16,33 @@
  */
 
 #include <asteroidapp.h>
+#include <syslog.h>
+
+#include <future>
+#include <chrono>
+#include <thread>
+#include <iostream>
+#include <iomanip>
+
+#include <string>
+
+#include <hardware/sensors.h>
+
+void TripPolling()
+{
+    
+    while (true){
+        syslog(LOG_INFO, "Background thread");
+        std::this_thread::sleep_for(std::chrono::seconds(2));
+    }
+    
+}
 
 int main(int argc, char *argv[])
-{
+{   
+    auto res = std::async(std::launch::async, [&]{
+        // syslog(LOG_INFO, "Delayed print");
+        // TripPolling();
+    });
     return AsteroidApp::main(argc, argv);
 }
