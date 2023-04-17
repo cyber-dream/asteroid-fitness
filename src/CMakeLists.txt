@@ -1,4 +1,4 @@
-add_library(asteroid-helloworld main.cpp resources.qrc)
+add_library(asteroid-helloworld main.cpp stepstracker.cpp stepstracker.h resources.qrc)
 set_target_properties(asteroid-helloworld PROPERTIES PREFIX "" SUFFIX "")
 
 target_link_libraries(asteroid-helloworld PUBLIC
