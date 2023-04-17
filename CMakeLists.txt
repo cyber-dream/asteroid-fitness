@@ -6,6 +6,7 @@ project(asteroid-helloworld
 
 find_package(ECM REQUIRED NO_MODULE)
 find_package(AsteroidApp REQUIRED)
+find_package(Qt5 COMPONENTS Sensors)
 
 set(CMAKE_MODULE_PATH ${ECM_MODULE_PATH} ${ASTEROID_MODULE_PATH})
 
@@ -18,6 +19,7 @@ include(AsteroidTranslations)
 add_subdirectory(src)
 
 generate_desktop(${CMAKE_SOURCE_DIR} asteroid-helloworld)
+target_link_libraries(asteroid-helloworld PRIVATE Qt::Sensors)
 
 feature_summary(WHAT ALL FATAL_ON_MISSING_REQUIRED_PACKAGES)
 
