@@ -48,7 +48,7 @@ int main(int argc, char *argv[]) {
     QSensorReading *reading = sensor.reading();
 
     auto res = std::async(std::launch::async, [&]{
-        SensorPolling(reading);
+//        SensorPolling(reading);
     });
     return AsteroidApp::main(argc, argv);
 }
