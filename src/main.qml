@@ -18,12 +18,35 @@
 import QtQuick 2.9
 import org.asteroid.controls 1.0
 import QtSensors 5.3
+//import QtPositioning 5.2
 
 Application {
     id: app
 
     centerColor: "#4D6E93"
     outerColor: "#233243"
+
+//    Label{
+//     id: positionText
+//     anchors {
+//         centerIn: app
+//         horizontalCenterOffset: 0
+//         verticalCenterOffset: 130
+//     }
+//     text: "Light:"
+//    }
+
+//    PositionSource {
+//        id: src
+//        updateInterval: 1000
+//        active: true
+//        preferredPositioningMethods: PositionSource.SatellitePositioningMethods
+
+//        onPositionChanged: {
+//            var coord = src.position.coordinate;
+//            positionText.text = "Coordinate:\n" + coord.longitude + " - " + coord.latitude;
+//        }
+//    }
 
     Gyroscope {
         id: gyroscope
