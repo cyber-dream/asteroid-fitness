@@ -1,0 +1,13 @@
+{
+    "type": "gdb",
+    "request": "attach",
+    "name": "Attach to gdbserver",
+    "executable": "./build/src/asteroid-helloworld",
+    "target": "192.168.2.15:228",
+    "remote": true,
+    "cwd": "${workspaceRoot}", 
+    "gdbpath": "gdb",
+    "autorun": [
+            "any gdb commands to initiate your environment, if it is needed"
+        ]
+}
