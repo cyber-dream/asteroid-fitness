@@ -1,17 +1,22 @@
 {
     "configurations": [
         {
-            "name": "Linux",
+            "name": "Asteroid OS",
             "includePath": [
                 "${workspaceFolder}/**",
                 "/usr/local/oecore-x86_64/sysroots/x86_64-oesdk-linux/usr/include/**",
                 "/usr/local/oecore-x86_64/sysroots/armv7vehf-neon-oe-linux-gnueabi/usr/include/**"
             ],
             "defines": [],
-            "compilerPath": "/usr/bin/clang-14",
+            "compilerPath": "/usr/bin/clang++-14",
+            // "compilerPath": "/usr/local/oecore-x86_64/sysroots/x86_64-oesdk-linux/usr/bin/arm-oe-linux-gnueabi/arm-oe-linux-gnueabi-g++",
+            // "compilerPath": "/usr/local/oecore-x86_64/sysroots/x86_64-oesdk-linux/usr/bin/arm-oe-linux-gnueabi/arm-oe-linux-gnueabi-gcc",
             "cStandard": "c17",
             "cppStandard": "c++14",
-            "intelliSenseMode": "linux-clang-x64"
+            "intelliSenseMode": "linux-gcc-arm64",
+            "compilerArgs": [
+                "\"--sysroot\", \"/usr/local/oecore-x86_64/sysroots/armv7vehf-neon-oe-linux-gnueabi/\""
+            ]
         }
     ],
     "version": 4

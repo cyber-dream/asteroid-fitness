@@ -49,7 +49,7 @@
         {
             "label": "echo",
             "type": "shell",
-            "command": "source /usr/local/oecore-x86_64/environment-setup-armv7vehf-neon-oe-linux-gnueabi;cmake -B build;cmake --build build",
+            "command": "source /usr/local/oecore-x86_64/environment-setup-armv7vehf-neon-oe-linux-gnueabi;cmake -B build;cmake --build build;chmod +x /usr/bin/asteroid-helloworld"
         },
         {
             "label": "Build Asteroid App",
@@ -57,15 +57,22 @@
             "command": "cmake -B build;cmake --build build;",
             "isBackground": true,
             "group": {
-				"kind": "build",
-				"isDefault": true
-			}
+                "kind": "build",
+                "isDefault": true
+            }
         },
         {
             "label": "Build Asteroid App",
             "type": "shell",
             "command": "source /usr/local/oecore-x86_64/environment-setup-armv7vehf-neon-oe-linux-gnueabi;cmake -B build;cmake --build build",
+            "isBackground": true
+        },
+        {
+            "label": "Install Package",
+            "type": "shell",
+            "command": "./deploy.sh",
             "isBackground": true,
+            "problemMatcher": []
         }
     ]
 }

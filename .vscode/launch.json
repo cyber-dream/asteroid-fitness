@@ -1,13 +1,49 @@
 {
-    "type": "gdb",
-    "request": "attach",
-    "name": "Attach to gdbserver",
-    "executable": "./build/src/asteroid-helloworld",
-    "target": "192.168.2.15:228",
-    "remote": true,
-    "cwd": "${workspaceRoot}", 
-    "gdbpath": "gdb",
-    "autorun": [
-            "any gdb commands to initiate your environment, if it is needed"
-        ]
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "gdb",
+            "request": "attach",
+            "name": "Attach to gdbserver",
+            "executable": "./build/src/asteroid-helloworld",
+            "target": "192.168.2.15:48597",
+            "remote": true,
+            "cwd": "${workspaceRoot}",
+            "gdbpath": "gdb-multiarch",
+            "autorun": []
+        },
+        {
+            "type": "by-gdb",
+            "request": "launch",
+            "name": "Launch(gdb)",
+            "program": "${fileBasenameNoExtension}",
+            "cwd": "${workspaceRoot}"
+        },
+        {
+            "name": "C++ Launch",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "./build/src/asteroid-helloworld",
+            "miDebuggerServerAddress": "192.168.2.15:48597",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${workspaceRoot}",
+            "environment": [],
+            "miDebuggerPath": "gdb-multiarch",
+            "externalConsole": true,
+            "linux": {
+                "MIMode": "gdb"
+            },
+            "osx": {
+                "MIMode": "gdb"
+            },
+            "windows": {
+                "MIMode": "gdb"
+            },
+            "visualizerFile": "/home/dart/.config/Code/User/workspaceStorage/45bbba71151c7a6d975636f867eced48/tonka3000.qtvsctools/qt.natvis.xml"
+        }
+    ]
 }
