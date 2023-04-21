@@ -13,37 +13,8 @@
             "remote": true,
             "cwd": "${workspaceRoot}",
             "gdbpath": "gdb-multiarch",
-            "autorun": []
+            "autorun": [],
+            "preLaunchTask": "Prelaunch Task"
         },
-        {
-            "type": "by-gdb",
-            "request": "launch",
-            "name": "Launch(gdb)",
-            "program": "${fileBasenameNoExtension}",
-            "cwd": "${workspaceRoot}"
-        },
-        {
-            "name": "C++ Launch",
-            "type": "cppdbg",
-            "request": "launch",
-            "program": "./build/src/asteroid-helloworld",
-            "miDebuggerServerAddress": "192.168.2.15:48597",
-            "args": [],
-            "stopAtEntry": false,
-            "cwd": "${workspaceRoot}",
-            "environment": [],
-            "miDebuggerPath": "gdb-multiarch",
-            "externalConsole": true,
-            "linux": {
-                "MIMode": "gdb"
-            },
-            "osx": {
-                "MIMode": "gdb"
-            },
-            "windows": {
-                "MIMode": "gdb"
-            },
-            "visualizerFile": "/home/dart/.config/Code/User/workspaceStorage/45bbba71151c7a6d975636f867eced48/tonka3000.qtvsctools/qt.natvis.xml"
-        }
     ]
 }

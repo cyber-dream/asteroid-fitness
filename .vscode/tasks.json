@@ -4,44 +4,44 @@
     "version": "2.0.0",
     "options": {
         "env": {
+            "SDKTARGETSYSROOT": "/usr/local/oecore-x86_64/sysroots/armv7vehf-neon-oe-linux-gnueabi",
+            "PATH": "/usr/local/oecore-x86_64/sysroots/x86_64-oesdk-linux/usr/bin:/usr/local/oecore-x86_64/sysroots/x86_64-oesdk-linux/usr/sbin:/usr/local/oecore-x86_64/sysroots/x86_64-oesdk-linux/bin:/usr/local/oecore-x86_64/sysroots/x86_64-oesdk-linux/sbin:/usr/local/oecore-x86_64/sysroots/x86_64-oesdk-linux/usr/bin/../x86_64-oesdk-linux/bin:/usr/local/oecore-x86_64/sysroots/x86_64-oesdk-linux/usr/bin/arm-oe-linux-gnueabi:/usr/local/oecore-x86_64/sysroots/x86_64-oesdk-linux/usr/bin/arm-oe-linux-musl:\"$PATH\"",
+            "PKG_CONFIG_SYSROOT_DIR": "$SDKTARGETSYSROOT",
+            "PKG_CONFIG_PATH": "$SDKTARGETSYSROOT/usr/lib/pkgconfig:$SDKTARGETSYSROOT/usr/share/pkgconfig",
+            "CONFIG_SITE": "/usr/local/oecore-x86_64/site-config-armv7vehf-neon-oe-linux-gnueabi",
+            "OECORE_NATIVE_SYSROOT": "\"/usr/local/oecore-x86_64/sysroots/x86_64-oesdk-linux\"",
+            "OECORE_TARGET_SYSROOT": "\"$SDKTARGETSYSROOT\"",
+            "OECORE_ACLOCAL_OPTS": "\"-I /usr/local/oecore-x86_64/sysroots/x86_64-oesdk-linux/usr/share/aclocal\"",
+            "OECORE_BASELIB": "\"lib\"",
+            "OECORE_TARGET_ARCH": "\"arm\"",
+            "OECORE_TARGET_OS": "\"linux-gnueabi\"",
+            "CC": "\"arm-oe-linux-gnueabi-gcc  -march=armv7ve -mfpu=neon -mfloat-abi=hard --sysroot=$SDKTARGETSYSROOT\"",
+            "CXX": "\"arm-oe-linux-gnueabi-g++  -march=armv7ve -mfpu=neon -mfloat-abi=hard --sysroot=$SDKTARGETSYSROOT\"",
+            "CPP": "\"arm-oe-linux-gnueabi-gcc -E  -march=armv7ve -mfpu=neon -mfloat-abi=hard --sysroot=$SDKTARGETSYSROOT\"",
+            "AS": "\"arm-oe-linux-gnueabi-as \"",
+            "LD": "\"arm-oe-linux-gnueabi-ld  --sysroot=$SDKTARGETSYSROOT\"",
+            "GDB": "arm-oe-linux-gnueabi-gdb",
+            "STRIP": "arm-oe-linux-gnueabi-strip",
+            "RANLIB": "arm-oe-linux-gnueabi-ranlib",
+            "OBJCOPY": "arm-oe-linux-gnueabi-objcopy",
+            "OBJDUMP": "arm-oe-linux-gnueabi-objdump",
+            "READELF": "arm-oe-linux-gnueabi-readelf",
+            "AR": "arm-oe-linux-gnueabi-ar",
+            "NM": "arm-oe-linux-gnueabi-nm",
+            "M4": "m4",
+            "TARGET_PREFIX": "arm-oe-linux-gnueabi-",
+            "CONFIGURE_FLAGS": "\"--target=arm-oe-linux-gnueabi --host=arm-oe-linux-gnueabi --build=x86_64-linux --with-libtool-sysroot=$SDKTARGETSYSROOT\"",
+            "CFLAGS": "\" -O2 -pipe -g -feliminate-unused-debug-types \"",
+            "CXXFLAGS": "\" -O2 -pipe -g -feliminate-unused-debug-types \"",
+            "LDFLAGS": "\"-Wl,-O1 -Wl,--hash-style=gnu -Wl,--as-needed \"",
+            "CPPFLAGS": "\"\"",
+            "KCFLAGS": "\"--sysroot=$SDKTARGETSYSROOT\"",
+            "OECORE_DISTRO_VERSION": "\"1.1-nightly\"",
+            "OECORE_SDK_VERSION": "\"nodistro.0\"",
+            "ARCH": "arm",
+            "CROSS_COMPILE": "arm-oe-linux-gnueabi-",
+            "OECORE_TUNE_CCARGS": "\" -march=armv7ve -mfpu=neon -mfloat-abi=hard\"",
             "CMAKE_PROGRAM_PATH": "/usr/local/oecore-x86_64/sysroots/armv7vehf-neon-oe-linux-gnueabi/usr/bin/",
-            "SDKTARGETSYSROOT":"/usr/local/oecore-x86_64/sysroots/armv7vehf-neon-oe-linux-gnueabi",
-            "PATH":"/usr/local/oecore-x86_64/sysroots/x86_64-oesdk-linux/usr/bin:/usr/local/oecore-x86_64/sysroots/x86_64-oesdk-linux/usr/sbin:/usr/local/oecore-x86_64/sysroots/x86_64-oesdk-linux/bin:/usr/local/oecore-x86_64/sysroots/x86_64-oesdk-linux/sbin:/usr/local/oecore-x86_64/sysroots/x86_64-oesdk-linux/usr/bin/../x86_64-oesdk-linux/bin:/usr/local/oecore-x86_64/sysroots/x86_64-oesdk-linux/usr/bin/arm-oe-linux-gnueabi:/usr/local/oecore-x86_64/sysroots/x86_64-oesdk-linux/usr/bin/arm-oe-linux-musl:\"$PATH\"",
-            "PKG_CONFIG_SYSROOT_DIR":"$SDKTARGETSYSROOT",
-            "PKG_CONFIG_PATH":"$SDKTARGETSYSROOT/usr/lib/pkgconfig:$SDKTARGETSYSROOT/usr/share/pkgconfig",
-            "CONFIG_SITE":"/usr/local/oecore-x86_64/site-config-armv7vehf-neon-oe-linux-gnueabi",
-            "OECORE_NATIVE_SYSROOT":"\"/usr/local/oecore-x86_64/sysroots/x86_64-oesdk-linux\"",
-            "OECORE_TARGET_SYSROOT":"\"$SDKTARGETSYSROOT\"",
-            "OECORE_ACLOCAL_OPTS":"\"-I /usr/local/oecore-x86_64/sysroots/x86_64-oesdk-linux/usr/share/aclocal\"",
-            "OECORE_BASELIB":"\"lib\"",
-            "OECORE_TARGET_ARCH":"\"arm\"",
-            "OECORE_TARGET_OS":"\"linux-gnueabi\"",
-            "CC":"\"arm-oe-linux-gnueabi-gcc  -march=armv7ve -mfpu=neon -mfloat-abi=hard --sysroot=$SDKTARGETSYSROOT\"",
-            "CXX":"\"arm-oe-linux-gnueabi-g++  -march=armv7ve -mfpu=neon -mfloat-abi=hard --sysroot=$SDKTARGETSYSROOT\"",
-            "CPP":"\"arm-oe-linux-gnueabi-gcc -E  -march=armv7ve -mfpu=neon -mfloat-abi=hard --sysroot=$SDKTARGETSYSROOT\"",
-            "AS":"\"arm-oe-linux-gnueabi-as \"",
-            "LD":"\"arm-oe-linux-gnueabi-ld  --sysroot=$SDKTARGETSYSROOT\"",
-            "GDB":"arm-oe-linux-gnueabi-gdb",
-            "STRIP":"arm-oe-linux-gnueabi-strip",
-            "RANLIB":"arm-oe-linux-gnueabi-ranlib",
-            "OBJCOPY":"arm-oe-linux-gnueabi-objcopy",
-            "OBJDUMP":"arm-oe-linux-gnueabi-objdump",
-            "READELF":"arm-oe-linux-gnueabi-readelf",
-            "AR":"arm-oe-linux-gnueabi-ar",
-            "NM":"arm-oe-linux-gnueabi-nm",
-            "M4":"m4",
-            "TARGET_PREFIX":"arm-oe-linux-gnueabi-",
-            "CONFIGURE_FLAGS":"\"--target=arm-oe-linux-gnueabi --host=arm-oe-linux-gnueabi --build=x86_64-linux --with-libtool-sysroot=$SDKTARGETSYSROOT\"",
-            "CFLAGS":"\" -O2 -pipe -g -feliminate-unused-debug-types \"",
-            "CXXFLAGS":"\" -O2 -pipe -g -feliminate-unused-debug-types \"",
-            "LDFLAGS":"\"-Wl,-O1 -Wl,--hash-style=gnu -Wl,--as-needed \"",
-            "CPPFLAGS":"\"\"",
-            "KCFLAGS":"\"--sysroot=$SDKTARGETSYSROOT\"",
-            "OECORE_DISTRO_VERSION":"\"1.1-nightly\"",
-            "OECORE_SDK_VERSION":"\"nodistro.0\"",
-            "ARCH":"arm",
-            "CROSS_COMPILE":"arm-oe-linux-gnueabi-",
-            "OECORE_TUNE_CCARGS":"\" -march=armv7ve -mfpu=neon -mfloat-abi=hard\""
             //TODO unset command_not_found_handle??
         }
     },
@@ -62,15 +62,41 @@
             }
         },
         {
-            "label": "Build Asteroid App",
+            "label": "Build Asteroid App 2",
             "type": "shell",
             "command": "source /usr/local/oecore-x86_64/environment-setup-armv7vehf-neon-oe-linux-gnueabi;cmake -B build;cmake --build build",
             "isBackground": true
         },
         {
-            "label": "Install Package",
+            "label": "Prelaunch Task",
             "type": "shell",
-            "command": "./deploy.sh",
+            // "command": "echo test",
+            "dependsOrder": "sequence",
+            "dependsOn": [
+                "Build Asteroid App 2",
+                "Install Package",
+                "Run GDB Server"
+            ]
+        },
+        {
+            "label": "Install Package", //TODO Rename
+            "type": "shell",
+            "command": [
+                // "/bin/scp ./build/src/asteroid-helloworld root@192.168.2.15:/usr/local/bin/asteroid-helloworld", //TODO Filename by var
+                // "/bin/ssh ceres@192.168.2.15 './gdbserver :48597 invoker --single-instance --type=qtcomponents-qt5 /usr/bin/asteroid-helloworld'"
+            ],
+            "isBackground": true,
+            "problemMatcher": []
+        },
+        {
+            "label": "Run GBD Server",
+            "type": "shell",
+            "command": [
+                // "/bin/ssh root@192.168.2.15 'chmod +x /usr/bin/asteroid-helloworld'",
+                "/bin/ssh ceres@192.168.2.15 '&./gdbserver :48597 invoker --single-instance --type=qtcomponents-qt5 /usr/bin/asteroid-helloworld'"
+                // "ssh root@192.168.2.15 << EOF  cd /home/ceres/; opkg install --force-overwrite --force-reinstall $filename EOF",
+                // "./deploy.sh"
+            ],
             "isBackground": true,
             "problemMatcher": []
         }
