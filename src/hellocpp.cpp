@@ -1,5 +1,4 @@
 #include "hellocpp.h"
-#include <QDebug>
 #include <syslog.h>
 
 #include <QFile>
@@ -10,16 +9,16 @@
 #include <thread>
 #include <iostream>
 #include <iomanip>
+#include <QtSensors>
 
-#include <QtSensors/QAccelerometer>
 
 HelloCpp::HelloCpp(QObject *parent) :
 QObject(parent)
 {
-}
-
-void HelloCpp::printMessage(QString txt)
-{
+    syslog(LOG_INFO, "Constructor");
+    QSensor sensor("QGyroscope");
+    sensor.start();
+    HelloCpp::reading = sensor.reading();
 }
 
 void SensorPolling(QSensorReading* reading)
@@ -47,13 +46,9 @@ void HelloCpp::startTracking() {
     HelloCpp::isWorking = !HelloCpp::isWorking;
     emit testSignal(HelloCpp::isWorking);
 
-    QSensor sensor("QGyroscope");
-    sensor.start();
-    QSensorReading *reading = sensor.reading();
-
-    qreal x = reading->property("x").value<qreal>();
-    double px = x;
-    syslog(LOG_INFO, std::to_string(px).c_str());
+    qreal x = HelloCpp::reading->property("x").value<qreal>();
+//    double px = x;
+//    syslog(LOG_INFO, std::to_string(px).c_str());
 
 //    auto res = std::async(std::launch::async, [&]{
 //        SensorPolling(reading);
