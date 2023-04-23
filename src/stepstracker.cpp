@@ -19,7 +19,7 @@
 #include "stepstracker.h"
 #include <QtSensors/QStepCounterSensor>
 #include <QDebug>
-
+#include <syslog.h>
 
 StepsTracker::StepsTracker(QObject *parent) : QObject(parent) {
     m_stepCounterSensor = new QStepCounterSensor(this);
@@ -33,6 +33,10 @@ StepsTracker::StepsTracker(QObject *parent) : QObject(parent) {
         if (!m_stepCounterSensor->start())
             qWarning() << "Could not start the orientation sensor";
     }
+}
+
+void StepsTracker::StartWriteTrack() {
+    syslog(LOG_INFO, "Starting write track to /home/ceres/testTrack.track");
 }
 
 void StepsTracker::stepsChanged() {

@@ -27,29 +27,44 @@
 #include <string>
 
 #include "stepstracker.h"
+#include "hellocpp.h"
+#include "appcore.h"
 //#include "sensorthread.h"
 #include <QtSensors/QAccelerometer>
 
-void SensorPolling(QSensorReading* reading)
-{
-    while (true){
-        qreal x = reading->property("x").value<qreal>();
-        qreal y = reading->value(1).value<qreal>();
-        double px = x;
-        syslog(LOG_INFO, std::to_string(px).c_str());
+#include <QtQuick>
+#include <QGuiApplication>
+#include <QQmlApplicationEngine>
+#include <QQmlContext>
 
-        std::this_thread::sleep_for(std::chrono::seconds(2));
-    }
-}
+#include <QFile>
+#include <QTextStream>
+
+
+//void SensorPolling(QSensorReading* reading)
+//{
+//    while (true){
+//        qreal x = reading->property("x").value<qreal>();
+//        qreal y = reading->value(1).value<qreal>();
+//        double px = x;
+//        syslog(LOG_INFO, std::to_string(px).c_str());
+
+
+//        std::this_thread::sleep_for(std::chrono::seconds(2));
+//    }
+//}
 
 int main(int argc, char *argv[]) {
     QSensor sensor("QGyroscope");
     sensor.start();
     QSensorReading *reading = sensor.reading();
 
-    auto res = std::async(std::launch::async, [&]{
-//        SensorPolling(reading);
-    });
+    qreal x = reading->property("x").value<qreal>();
+    double px = x;
+    syslog(LOG_INFO, std::to_string(px).c_str());
+
+     qmlRegisterType<HelloCpp>("HelloCpp", 1, 0, "HelloCpp");
+
+
     return AsteroidApp::main(argc, argv);
 }
-

@@ -17,7 +17,7 @@
 
 #ifndef STEPSTRACKER_H
 #define STEPSTRACKER_H
-
+#include <syslog.h>
 #include <QObject>
 
 class QStepCounterSensor;
@@ -27,6 +27,7 @@ class StepsTracker : public QObject
     Q_OBJECT
 public:
     explicit StepsTracker(QObject *parent = 0);
+    void StartWriteTrack();
 private slots:
     void stepsChanged();
     void sensorError(int error);

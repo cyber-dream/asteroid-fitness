@@ -19,6 +19,7 @@ import QtQuick 2.9
 import org.asteroid.controls 1.0
 import QtSensors 5.3
 //import QtPositioning 5.2
+import HelloCpp 1.0
 
 Application {
     id: app
@@ -26,27 +27,28 @@ Application {
     centerColor: "#4D6E93"
     outerColor: "#233243"
 
-//    Label{
-//     id: positionText
-//     anchors {
-//         centerIn: app
-//         horizontalCenterOffset: 0
-//         verticalCenterOffset: 130
-//     }
-//     text: "Light:"
-//    }
+    HelloCpp {
+        id: demo
+        onTestSignal:{
+            console.log(isWorking)
+            iconButton.iconName = isWorking ? "ios-pause" : "ios-play"
+        }
+    }
 
-//    PositionSource {
-//        id: src
-//        updateInterval: 1000
-//        active: true
-//        preferredPositioningMethods: PositionSource.SatellitePositioningMethods
+    IconButton {
+        id: iconButton
+        iconName: demo.isRunning() ? "ios-pause" : "ios-play"
+        anchors {
+            bottom: parent.bottom
+            horizontalCenter: parent.horizontalCenter
+            bottomMargin: Dims.iconButtonMargin
+        }
 
-//        onPositionChanged: {
-//            var coord = src.position.coordinate;
-//            positionText.text = "Coordinate:\n" + coord.longitude + " - " + coord.latitude;
-//        }
-//    }
+        onClicked: {
+            demo.startTracking();
+//            console.log("log completed")
+        }
+    }
 
     Gyroscope {
         id: gyroscope
@@ -60,16 +62,13 @@ Application {
         property real z: 0
 
         onReadingChanged: {
-
             x = reading.x
             y = reading.y
             z = reading.z
-
                     
             gyroX.text = "x:" + Math.round(reading.x)
             gyroY.text = "y:" + Math.round(reading.y)
-            gyroZ.text = "z:" + Math.round(reading.z)
-          
+            gyroZ.text = "z:" + Math.round(reading.z)          
         }
     }
 
